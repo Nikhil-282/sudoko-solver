@@ -1,0 +1,10 @@
+.change-text{
+    font-weight: 10 rem;
+    font-size: 10rem;
+    font-family: cursive;
+    color: rgb(21, 19, 19);
+}
+.margin-add{
+    margin: 10px;
+    border: 10px;
+}
