@@ -95,7 +95,7 @@ function valid(board){
                 var cellValue = $("#row-"+i+"-"+j).text();
                 if(cellValue === '') cellValue = 0;
                 boardArray[i][j] = cellValue;
-                console.log(boardArray[i][j]);
+                //console.log(boardArray[i][j]);
             }
         }
         return boardArray;
