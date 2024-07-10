@@ -10,13 +10,13 @@
 
 
 function sudoko_solver(board) {
-    for (var i = 0; i < board.length; i++) {
-        for (var j = 0; j < board.length; j++) {
+    for (let i = 0; i < board.length; i++) {
+        for (let j = 0; j < board.length; j++) {
             if (board[i][j] === 0) {
-                for (var l = 1; l < 10; l++) {
+                for (let l = 1; l < 10; l++) {
                     if (isValid(board, i, j, l)) {
                         board[i][j] = l;
-                        var solved = sudoko_solver(board);
+                        let solved = sudoko_solver(board);
                         if (solved !== false) return solved;
                         board[i][j] = 0;
                     }
@@ -29,11 +29,11 @@ function sudoko_solver(board) {
 }
 
 function isValid(board, i, j, l) {
-    for (var p = 0; p < board.length; p++) {
+    for (let p = 0; p < board.length; p++) {
         if (board[i][p].toString() === l.toString()) return false;
         if (board[p][j].toString() === l.toString()) return false;
         
-        var gridVal = board[3 * Math.floor(i/3) + Math.floor(p/3)][3 * Math.floor(j/3) + p % 3];
+        let gridVal = board[3 * Math.floor(i/3) + Math.floor(p/3)][3 * Math.floor(j/3) + p % 3];
         if (gridVal.toString() === l.toString()) return false;
     }
     
@@ -41,12 +41,12 @@ function isValid(board, i, j, l) {
 };
 
 function valid(board){
-    for(var i = 0 ; i < 9 ; i++){
-        for(var j = 0 ; j < 9 ; j++){
+    for(let i = 0 ; i < 9 ; i++){
+        for(let j = 0 ; j < 9 ; j++){
             if(board[i][j] != 0){
-                var temp = board[i][j];
+                let temp = board[i][j];
                 board[i][j] = 0;
-                var validCell = isValid(board,i,j,temp);
+                let validCell = isValid(board,i,j,temp);
                 board[i][j] = temp;
                 if(validCell == false) return false;
             }
@@ -89,9 +89,9 @@ function valid(board){
 
     function readBoard() {
         var boardArray = [];
-        for(var i = 0 ; i < 9 ; i++){
+        for(let i = 0 ; i < 9 ; i++){
             boardArray[i] = [];
-            for(var j = 0 ; j < 9 ; j++){
+            for(let j = 0 ; j < 9 ; j++){
                 var cellValue = $("#row-"+i+"-"+j).text();
                 if(cellValue === '') cellValue = 0;
                 boardArray[i][j] = cellValue;
@@ -102,8 +102,8 @@ function valid(board){
     }
 
     function writeBoard(boardArray) {
-        for(var i = 0 ; i < 9 ; i++){
-            for(var j = 0 ; j < 9 ; j++){
+        for(let i = 0 ; i < 9 ; i++){
+            for(let j = 0 ; j < 9 ; j++){
                 $("#row-"+i+"-"+j).text(boardArray[i][j]);
             }
         }
